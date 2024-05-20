@@ -1,0 +1,140 @@
+% ****************************** Custom Margin *********************************
+\raggedbottom % Ragged bottom avoids extra whitespaces between paragraphs
+
+% *************************** Graphics and figures *****************************
+\usepackage{tikz}
+
+% Tikz settings
+\usetikzlibrary{shapes,decorations,arrows,calc,arrows.meta,fit,positioning}
+\tikzset{
+    -Latex,auto,node distance =1 cm and 1 cm,semithick,
+    state/.style = {rectangle, draw, minimum width = 1.5 cm},
+    % cstate for causal states
+    cstate/.style = {ellipse, draw, minimum width = 0.7 cm},
+    rstate/.style = {rectangle, draw, minimum width = 0.7 cm, rounded corners = 0.2cm},
+    point/.style = {circle, draw, inner sep=0.04cm,fill,node contents={}},
+    bidirected/.style={Latex-Latex,solid},
+    el/.style = {inner sep=2pt, align=left, sloped}
+}
+
+\usepackage[mark=***]{sectionbreak}
+
+\usepackage{tkz-graph}
+\usetikzlibrary{arrows.meta,
+                shapes.geometric}
+\tikzstyle{VertexStyle} = [shape=circle,
+                           minimum width=6ex,
+                           draw]
+\tikzstyle{EdgeStyle} = [-Stealth]
+
+\usepackage{circuitikz}
+
+% ********************************** Tables ************************************
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{threeparttablex}
+%\usepackage{threeparttable}
+%\usepackage{wrapfig}
+%\usepackage{float}
+%\usepackage{colortbl}
+%\usepackage{pdflscape}
+%\usepackage{tabu}
+%\usepackage[normalem]{ulem}
+\usepackage{makecell}
+%\usepackage{xcolor}
+\usepackage{color, colortbl}
+\definecolor{Gray}{gray}{0.9}
+\setlength{\LTcapwidth}{\textwidth}
+
+% ********************************** Maths *********************************
+\usepackage{bm}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+% ********************************** PDF pages *********************************
+%\usepackage{pdfpages} % to insert pages from pdf files
+
+% ********************************** Values from R *********************************
+\usepackage{datatool}
+% import data
+\DTLloaddb[noheader, keys={thekey,thevalue}]{thesis_data}{thesis_data.dat}
+% Loads mydata.dat with column headers 'thekey' and 'thevalue'
+\newcommand{\var}[1]{\DTLfetch{thesis_data}{thekey}{#1}{thevalue}}
+% example:
+% \var{hivww} will print 74.9 which is the number (in millions) of HIV acquisitions worldwide
+
+% ********************************** References ************************************
+\renewcommand{\bibname}{References} % changes the default name `Bibliography` -> `References'
+
+% ********************** TOC depth and numbering depth *************************
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage{enumitem}
+\setlist[description]{leftmargin=16pt, labelindent=-6pt}
+
+% ***************************** Abstract Separate ******************************
+% To printout only the titlepage and the abstract with the PhD title and the
+% author name for submission to the Student Registry, use the `abstract' option in
+% the document class.
+
+\ifdefineAbstract
+ \pagestyle{empty}
+ \includeonly{Declaration/declaration, Abstract/abstract}
+\fi
+
+% ***************************** Captions ******************************
+\usepackage{caption} % go to the top of an image when a figure reference is clicked
+
+% ***** TeX Gyre Termes font from the newtx package *********
+\usepackage{newtx}
+%\usepackage[british]{babel}
+%\usepackage{csquotes}
+
+% ***************************** Independence ******************************
+\newcommand{\ind}{\mathrel{\perp\!\!\!\!\perp}}
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
+
+% *************** Annotate equations ***************
+% \usepackage{annotate-equations}
+
+% *************** Framed quotes ***************
+\usepackage{framed}
+
+% *************** URL breaks ***************
+\usepackage{xurl}
+
+% ********** Redefine chapter headings ****************
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{20\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \interlinepenalty\@M
+    \Huge\bfseries  \thechapter.\quad #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
+
+\makeatletter
+\AtBeginEnvironment{thenomenclature}{%
+  \patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{}{}{}%
+}
+\makeatother
+
+% ********** Fix spacing of toc headings ****************
+\usepackage{tocloft}
+\setlength{\cftbeforetoctitleskip}{-1em}
+\setlength{\cftbeforeloftitleskip}{-1em}
+\setlength{\cftbeforelottitleskip}{-1em}
+
+%\usepackage{multicol}
+
+% ********** Fix position of footnotes ****************
+\usepackage[bottom]{footmisc}
+
+% ************** Quotes ***************
+%\usepackage{epigraph}
+% \vspace*{\fill}
+% \epigraph{\itshape Begin at the beginning, the King said gravely, ``and go on till you come to the end: then stop.''}{---Lewis Carroll, \textit{Alice in Wonderland}}

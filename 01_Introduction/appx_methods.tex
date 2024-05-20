@@ -1,0 +1,69 @@
+
+\chapter{Appendix to Chapter 2}\label{appx:methods}
+
+\graphicspath{{01_Introduction/Figs/}}
+
+\section{Cox proportional hazards model}
+
+In the Cox proportional hazards model introduced in Section~\ref{sec:cox-model}, the partial likelihood for regression coefficients $\beta_m$ was defined as:
+%
+\[
+    L(\bm{\beta}) = \prod_{i \in D}\frac{\exp(\bm{\beta}^\mathsf{T}\bm{z}_{d_i})}{\sum_{j \in R_i}\exp(\bm{\beta}^\mathsf{T}\bm{z}_j)}
+\]
+
+The score function $U(\beta)$ and the observed information matrix $I(\beta)$ may be derived from this partial likelihood, with the standard estimate of the covariance matrix being the inverse of the observed information matrix:
+%
+\[
+    \text{Cov}(\beta) = {I(\beta)}^{-1}
+\]
+
+\subsection{Stratified Cox model}
+
+A key assumption of the Cox proportional hazards model is that hazards are `proportional'. For the example of two covariates, vaccination and age, the model would state:
+%
+\[
+    h(t \mid z) = h^{(0)}(t)\exp(\beta_{\text{age}}z_{\text{age}} + \beta_{\text{vax}}z_{\text{vax}})
+\]
+
+where, again, $h^{(0)}(t)$ is the baseline hazard function. This implies that the trend in survival over time is the same for all age groups, and that e.g.\ (hazard for age group 2)$/$(hazard for age group 1) is a constant.
+
+As described in Section~\ref{sec:stratification}, stratification may be used for covariates which exhibit non-proportionality. Stratification avoids needing to make the proportional hazards assumption by allowing the baseline hazard to differ according to covariate level. This is achieved by fitting two (or more) separate equations with a common regression coefficient $\beta_{\text{vax}}$~\parencite{Collett2023-bg}:
+%
+\begin{align*}
+    h_{\text{age} = 1}(t \mid z) & = h^{(0)}_{\text{age} = 1}(t)\exp(\beta_{\text{vax}}z_{\text{vax}}) \\
+    h_{\text{age} = 2}(t \mid z) & = h^{(0)}_{\text{age} = 2}(t)\exp(\beta_{\text{vax}}z_{\text{vax}})
+\end{align*}
+
+\subsection{Accounting for correlation}
+
+The Cox proportional hazards model assumes that the failure times of individuals are independent. However, this assumption is unlikely to hold if, e.g.\ individuals work at the same location, and may be influenced by common effects. Two standard approaches to account for this so-called `within-cluster' correlation are the robust variance estimator and shared frailty~\parencite{Balan2020-gc}.
+
+\subsubsection{Robust variance estimator}
+
+The robust variance estimator approach is to adjust the standard errors of the estimated hazard ratios to account for the extra variability due to within-cluster correlation. The standard model-based estimate of the variance-covariance matrix of the parameter estimates in a Cox regression model is the inverse of the observed information matrix:\ $\text{Cov}(\beta) = {I(\beta)}^{-1}$~\parencite{Collett2023-bg}. A more robust variance estimator is the so-called `sandwich' estimator, given by $\text{Cov}(\beta) = {I(\beta)}^{-1} S(\beta) {I(\beta)}^{-1}$, where $S(\beta)$ is a correction term that captures the actual variance of the data~\parencite{Lin1989-ta}.
+
+\subsubsection{Shared frailty}
+
+The shared frailty approach is to directly incorporate cluster-specific random effects into the model via a shared parameter, or `frailty' term, which applies to all individuals within the cluster~\parencite{Austin2017-im}. In a Cox proportional hazards model with shared frailty, the hazard function for individual $i$ in cluster $j$ may be formulated as:
+%
+\begin{align*}
+    h_i(t) & = h^{(0)}(t)\exp\left(\sum_{m=1}^{M}\beta_{m}z_{m}+ \alpha_j\right)     \\
+           & = h^{(0)}(t)\exp(\alpha_j)\exp\left(\sum_{m=1}^{M}\beta_{m}z_{m}\right)
+\end{align*}
+
+where $\alpha_j$ denotes the random effect associated with the $j$th cluster. The frailty term $\exp(\alpha_j)$ is ``shared'' among the cluster, not specific to an individual, with a multiplicative effect on the baseline hazard function. The distribution of this shared frailty term is commonly specified as a gamma distribution with mean 1 and variance $\theta$~\parencite{Balan2020-gc}.
+
+% For statistical nomenclature
+\nomenclature[s]{$\sim$}{distributes according to}
+\nomenclature[s]{$\propto$}{is proportional to}
+\nomenclature[s]{$\mid$}{given/conditional on}
+\nomenclature[s]{$X, Y, Z$}{capital Latin letters represent random variables}
+\nomenclature[s]{$x, y, z$}{small Latin letters represent a given value of a random variable}
+\nomenclature[s]{$\alpha, \beta, \gamma$}{Greek letters represent parameters}
+\nomenclature[s]{$\bm{\alpha}, \bm{\beta}, \bm{\gamma}$}{bold Greek letters represent vectors of parameters}
+\nomenclature[s]{$\Pr(A)$}{probability that event A takes place}
+\nomenclature[s]{$f(x)$}{probability density function of the random variable $X$ evaluated at $x$}
+\nomenclature[s]{$F(x)$}{distribution function of the random variable $X$ evaluated at $x$}
+\nomenclature[s]{$\hat{.}$}{a hat over an estimand represents the estimator}
+\nomenclature[s]{$\mathbf{P}, \mathbf{Q}$}{bold capital Latin letters represent transition matrices}
+\nomenclature[s]{$\mathds{1}\{A\}$}{indicator function:\ $\mathds{1}\{A\} = \begin{dcases*} 1, & if $A$ is true \\ 0, & if $A$ is false\end{dcases*}$}

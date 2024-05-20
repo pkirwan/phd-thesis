@@ -1,0 +1,91 @@
+
+% Journal name, book titles, and et al. in italics
+\DeclareFieldFormat{journaltitle}{\textit{#1}\adddot}
+\DeclareFieldFormat[book]{title}{{\textit{#1}}}
+\DeclareFieldFormat[report]{title}{`{#1}'}
+\DeclareFieldFormat[online]{title}{`{#1}'}
+\DeclareFieldFormat[misc]{date}{{}}
+
+\DefineBibliographyStrings{english}{
+  andothers = {\mkbibemph{et\addabbrvspace al\adddot}}
+}
+\addbibresource{References/paperpile.bib}
+
+% Put accession dates at end
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map[overwrite=false]{
+      \step[fieldsource=note]
+      \step[fieldset=addendum, origfieldval, final]
+      \step[fieldset=note, null]
+    }
+  }
+}
+
+% remove Tech. rep.
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[typesource=techreport, typetarget=report]
+    }
+  }
+}
+
+% eprint links
+\DeclareFieldFormat{eprint}{%
+  \mkbibacro{EPRINT}\addcolon\space\href{https://arxiv.org/abs/#1}{#1}%
+}
+
+% No unit separator after publication year:
+%\usepackage{xpatch}\xapptobibmacro{date+extrayear}{\nopunct}{}{}
+
+% No month for publication year:
+\AtEveryBibitem{\clearfield{month}}
+\AtEveryBibitem{\clearfield{day}}
+
+% No language
+\AtEveryBibitem{\clearlist{language}}
+
+% Use single quotes around titles:
+\usepackage[british]{babel}
+\usepackage{csquotes}
+
+\DeclareNameAlias{author}{family-given}
+\renewcommand*{\bibnamedelimd}{\addlpthinspace} % insert thin spaces between author initials
+\renewbibmacro{in:}{} % remove 'in:' preceding article title
+
+% Place volume number within parentheses:
+\renewbibmacro*{volume+number+eid}{%
+    \printfield{volume}%
+    \setunit*{\addnbspace}% NEW (optional); there's also \addnbthinspace
+    \printfield{number}%
+    \setunit{\addcomma\space}%
+    \printfield{eid}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+
+% Spacing in bibliography:
+\setlength{\bibitemsep}{6pt}
+\setlength{\bibhang}{16pt}% the hanging indent
+
+\DeclareFieldFormat{year}{\mkbibparens{#1}}
+\DeclareFieldFormat{type}{}
+
+% Remove urls and date visited for books and articles
+\DeclareFieldFormat[article]{url}{}
+\DeclareFieldFormat[article]{urldate}{}
+\DeclareFieldFormat[book]{url}{}
+\DeclareFieldFormat[book]{urldate}{}
+\DeclareFieldFormat[thesis]{url}{}
+\DeclareFieldFormat[thesis]{urldate}{}
+\DeclareFieldFormat[inbook]{url}{}
+\DeclareFieldFormat[inbook]{urldate}{}
+\DeclareFieldFormat[report]{urldate}{}
+\DeclareFieldFormat{url}{\mkbibacro{URL}: \url{#1}}
+%\DeclareFieldFormat[report]{url}{\mkbibacro{REPORT}: \url{#1}}
+
+% avoid capitalising van surnames in the bibliography
+\renewbibmacro*{begentry}{\midsentence}
+
+\makeatletter
+\AtBeginDocument{\toggletrue{blx@useprefix}}
+\makeatother

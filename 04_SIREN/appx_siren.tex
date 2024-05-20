@@ -1,0 +1,150 @@
+%!TEX root = ../thesis.tex
+%*******************************************************************************
+%****************************** Chapter 3 appendix *********************************
+%*******************************************************************************
+\chapter{Appendix to Chapter 5}\label{appx:siren}
+
+\graphicspath{{04_SIREN/Figs/}}
+
+% \section{Sequencing}\label{appendix:sequencing}
+
+% \begin{figure}[htbp!]
+%     \centering
+%     \includegraphics[width=\textwidth]{interim4_sequences.pdf}
+%     \caption{SARS-CoV-2 infections, by sequenced variant. Percentages indicate proportion of sequenced variants. Sequence information was available for 43.4\% (563/1,298) of detected infections.}\label{fig:sequences}
+% \end{figure}
+
+\begingroup\small
+\input{04_SIREN/Tables/siren_demographics.tex}
+\endgroup
+
+\section{Cox proportional hazards models}\label{appendix:siren-cox-models}
+
+Stratified Cox proportional hazards models (described in Section~\ref{sec:cox-model}) were applied to the SIREN study data in two `interim analyses'. These models included stratification on the age group, household status, and occupation/setting covariates, with the robust variance estimator used to account for correlation between individuals within sites.
+
+The \texttt{R} package \texttt{survival} was used to implement the Cox proportional hazards models~\parencite{Therneau1999-to}. Hazard ratios (HR) were converted into vaccine effectiveness (VE) and relative protection estimates using the formula:\ $\text{VE} = 1 - \text{HR}$\@.
+
+\subsection{Vaccine effectiveness by vaccine type}
+
+Cox proportional hazards models were first applied to estimate the duration and effectiveness of immunity from prior infection and vaccination with two vaccine doses during the Alpha and Delta variant circulating period~\parencite{Hall2022-ep}. A total of 35,768 participants were included in this analysis, of whom 27\% had a previous detected SARS-CoV-2 infection. Vaccine coverage was high:\ 78\% received two BNT162b2 mRNA vaccines with a long interval between doses, 9\% two BNT162b2 mRNA vaccines with a short interval between doses, and 8\% two ChAdOX1 adenoviral vaccines. Between December 2020 and September 2021 there were 2747 primary infections and 210 reinfections detected among this cohort.
+
+For the BNT162b2 vaccine with a long dosing interval, estimated vaccine effectiveness dropped from 85\% (95\% CI 72 to 92\%) within 14-to-73 days post-second dose to 51\% (95\% CI 22 to 69\%) at around 6 months post-second dose. There was no significant difference in vaccine effectiveness between long and short dosing intervals for the BNT162b2 vaccine. However, vaccine effectiveness for the ChAdOX1 vaccine was estimated as 58\% (95\% CI 23 to 77) at 14-to-73 days post-second dose (Figure~\ref{fig:cox_1}). Immunity from previous infection waned after one year in unvaccinated individuals but persisted at above 90\% among those who had been vaccinated after infection, even if the infection had occurred >18 months prior.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{cox_1.pdf}
+    \caption[Adjusted vaccine effectiveness among SIREN participants with no prior infection during the Alpha and Delta variant circulating period]{Adjusted vaccine effectiveness among SIREN participants with no prior infection during the Alpha and Delta variant circulating period, by vaccine type and dosing interval.}\label{fig:cox_1}
+\end{figure}
+
+\subsection{Vaccine effectiveness against Omicron}
+
+Cox proportional hazards models were next applied to estimate the effectiveness of third BNT162b2 vaccine doses and previous infection against the Omicron BA.1 and BA.2 sub-variants compared to Delta~\parencite{Hall2024-ai}. This analysis included 19,614 participants, with 29\% having been previously infected. Between September 2021 and February 2022, 95\% received a third vaccine dose and there were 2745 primary infections and 966 reinfections detected during the 6-month follow-up period.
+
+Third dose vaccine effectiveness against the Delta variant for participants who had initially received the BNT162b2 vaccine was 63\% (95\% CI 40 to 77\%) within 0-to-2 months post-third dose, compared to 35\% (95\% CI 21 to 47\%) against the Omicron BA.1 and BA.2 sub-variants. Participants who had initially received the ChAdOX1 vaccine had a median vaccine effectiveness $\geq$68\% against both variants (Figure~\ref{fig:cox_2} panel A). Third dose protection waned rapidly against the Omicron variant, however, with only around 4 months of additional protection conferred by vaccination. Previous infection provided longer-lasting protection against Omicron, 67\% (95\% CI 56 to 75\%) at 3--6 months post-infection, this reduced to 27\% (95\% CI 4 to 44\%) after 9 months, approximately three times lower than against Delta (Figure~\ref{fig:cox_2} panel B).
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{cox_2.pdf}
+    \caption[Third dose vaccine effectiveness and protection against infection, by primary course, time since previous infection, and variant circulating period]{Third dose vaccine effectiveness, by primary course, variant circulating period, and time since vaccination (panel A) and protection against infection, by time since previous infection and variant circulating period (Panel B).}\label{fig:cox_2}
+\end{figure}
+
+\subsection{Discussion}
+
+Stratified Cox proportional hazards models were successfully applied to estimate vaccine effectiveness and protection from prior infection in a densely-sampled cohort of healthcare workers with high vaccine coverage.
+
+Two doses of the BNT162b2 vaccine were shown to provide high short-term protection which diminished after six months, whereas protection from two doses of the ChAdOX1 vaccine was substantially lower. Third vaccine doses were found to offer additional short-term protection which again swiftly diminished, particularly against Omicron sub-variants. Meanwhile, infection-acquired immunity (especially when boosted by vaccination) provided longer-lasting protection, although protection was substantially reduced against Omicron as compared to previous variants.
+
+A limitation of the Cox proportional hazards approach under less frequent testing conditions is discussed in Section~\ref{sec:cohort-study-design}, which motivated the development of a multi-state modelling approach.
+
+\section{Fourth dose vaccine uptake and model results}
+
+\begingroup\small
+\input{04_SIREN/Tables/siren_vaccine_uptake.tex}
+\endgroup
+
+\input{04_SIREN/Tables/pcr_positivity.tex}
+
+\input{04_SIREN/Tables/sojourn_time.tex}
+
+\clearpage
+
+\section{Alternative model specifications}\label{appendix:alt-models}
+
+\subsection{Convalescent model}
+
+The studies of the SIREN cohort using Cox proportional hazards methodology described in Section~\ref{appendix:siren-cox-models} applied a 90-day episode length, after which point participants were considered to be at risk for reinfection~\parencite{Hall2022-ep, Hall2024-ai}. To emulate this 90-day episode, participants with a negative PCR can be assigned to a recovery (or convalescence) state for a defined period following a positive PCR result (e.g.\ 90 days post-infection). Figure~\ref{fig:ve_convalescent} panels A and B show the estimates from the two-state (main) model and three-state convalescent model.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{ve_convalescent.pdf}
+    \caption[Estimated booster VE and estimated protection from previous infection in two-state and three-state model]{Estimated booster VE (panel A, model M1) and estimated protection from previous infection (panel B, model M3) in two-state and three-state model. Error bars show the 95\% CI around the estimates.}\label{fig:ve_convalescent}
+\end{figure}
+
+\subsection{Semi-Markov model}
+
+Figure~\ref{fig:sojourn_semi_markov} compares mean sojourn times estimated by the Markov model (panel A) to mean sojourn times for long and short stayers estimated by the semi-Markov model (panel B). As expected, the mean sojourn times for the Markov model fall somewhere in between the mean times for the long and short stayers.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{sojourn_semi_markov.pdf}
+    \caption[Estimated mean sojourn time in PCR positive state, averaged across the study population, estimated by Markov and semi-Markov model]{Estimated mean sojourn time in PCR positive state, averaged across the study population, estimated by Markov model (panel A) and semi-Markov model (panel B). Error bars show the 95\% CI around the estimates.}\label{fig:sojourn_semi_markov}
+\end{figure}
+
+\subsection{Misclassification model}
+
+Hazards estimated via a misclassification model with fixed misclassification probabilities $\Pr(S \mid P) = 0.09$ and $\Pr(I \mid N) = 0.001$ are shown in Figure~\ref{fig:ve_misclass}. Hazards were similar to those estimated in the two-state model without misclassification, with slightly wider confidence intervals.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{ve_misclass.pdf}
+    \caption[Estimated booster VE and estimated protection from previous infection in two-state and misclassification model]{Estimated booster VE (panel A, model M1) and estimated protection from previous infection (panel B, model M3) in two-state and misclassification model. Error bars show the 95\% CI around the estimates.}\label{fig:ve_misclass}
+\end{figure}
+
+\subsection{Na\"{\i}ve baseline model}
+
+`2+ years' was chosen as the baseline category for the time since previous infection covariate in the main analysis. Estimates using the `confirmed na\"{\i}ve' group as the baseline category instead are shown in Figure~\ref{fig:ve_baseline}.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{ve_baseline.pdf}
+    \caption[Estimated protection from previous infection relative to confirmed na\"{\i}ve baseline category]{Estimated protection from previous infection, by time since previous infection (panel A, model M3), and symptom status (panel B, model M7), relative to confirmed na\"{\i}ve baseline category. Error bars show the 95\% CI around the estimates.}\label{fig:ve_baseline}
+\end{figure}
+
+\section{Cox proportional hazards model comparison}
+
+Figures~\ref{fig:vaccine_long} and ~\ref{fig:vaccine_short_noev} compare hazards estimated by multi-state models M2 and M3 to those from the corresponding stratified Cox proportional hazards model, where the same covariates were included in both models.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{04_SIREN/Figs/vaccine_short_noev.pdf}
+    \caption[Comparison of hazards estimated by multi-state model and the corresponding Cox proportional hazards model]{Comparison of hazards estimated by multi-state model M3 and the corresponding Cox proportional hazards model, for covariates common between the two models. Error bars show the 95\% CI around the estimated hazards.}\label{fig:vaccine_short_noev}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{vaccine_long.pdf}
+    \caption[Comparison of hazards estimated by multi-state model and the corresponding Cox proportional hazards model]{Comparison of hazards estimated by multi-state model M2 and the corresponding Cox proportional hazards model, for covariates common between the two models. Error bars show the 95\% CI around the estimated hazards.}\label{fig:vaccine_long}
+\end{figure}
+
+\section{Goodness of fit}\label{appendix:siren-gof}
+
+\subsection{Simulated number of infections}
+Model M3 was used to simulate the expected number of infections from the fitted model, i.e.\ $\mathbb{E}(N^{I}_{\text{TOT}}; \hat{q}^{I})$, where $N^{I}$ is the counting process for entries into the infected state and $\hat{q}^{I}$ is the maximum likelihood estimate for the transition intensity to the infected state as described in Section~\ref{sec:siren-causal}. 500 simulations were used to infer the variability in this estimate, $\text{Var}(\mathbb{E}(N^{I}_{\text{TOT}}; \hat{q}^{I}))$.
+
+Compared to the observed $n = 1023$ infections, the expected number of infections under the fitted model was 1069 infections (95\% variance 1013 to 1125). With weekly sampling and 100\% adherence to testing, a total of 1310 infections (95\% variance 1242 to 1373) would be expected to have been been detected (Figure~\ref{fig:expected_causal_msm}).
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{04_SIREN/Figs/expected_causal_msm.pdf}
+    \caption[Expected number of detected infections under observed and bi-weekly sampling schemes]{Expected number of detected infections under observed and bi-weekly sampling schemes with error bars showing variability in the mean estimate, simulated from model M3.}\label{fig:expected_causal_msm}
+\end{figure}
+
+\subsection{Causal model goodness of fit}
+
+To assess model fit of the causal model, the number of individuals forecast to be occupying the infected state in the fitted model at a series of times $t$ was compared to an estimate derived from the observed data (Figure~\ref{fig:causal_model_diagnostics}).
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{causal_model_diagnostics.pdf}
+    \caption[Comparison of prevalence in the infected state forecast from fitted model and more empirical estimate over time]{Comparison of prevalence in the infected state forecast from fitted model and more empirical estimate over time. Shaded area shows the 95\% CI around the expected prevalence.}\label{fig:causal_model_diagnostics}
+\end{figure}

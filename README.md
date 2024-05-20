@@ -1,0 +1,47 @@
+### Multi-state modelling to estimate infectious disease burden
+_by Peter Kirwan_
+
+This thesis was submitted for the degree of Doctor of Philosophy in March 2024.
+
+### Thesis abstract
+
+Infectious diseases have plagued humanity for millennia, with outbreaks such as cholera and
+smallpox claiming countless lives. As was demonstrated by COVID-19, our interconnected
+world is now more susceptible than ever to the global spread of an infectious disease pandemic.
+
+Despite advances in statistical methods and comprehensive public health surveillance,
+understanding the many facets of infectious disease burden remains a challenge. Questions
+persist of how fast a disease is spreading, who in society is most at risk, and which interventions
+might have the capability to save lives.
+
+In this thesis I aim to develop and apply multi-state models to estimate infectious disease
+burden from observational data. Multi-state models are a flexible approach to estimating risks
+and lengths of stay, and capable of accounting for data biases and censoring. I demonstrate the
+potential of these models to address certain limitations of classical survival analysis methods,
+and their application to answer causal questions using observational data.
+
+Firstly, I develop an established multi-state back-calculation method to better estimate the
+incidence processes underlying the HIV epidemic in England. The updated method is shown,
+via simulation, to account for measurement bias in markers of disease progression. This method
+is also shown to be robust to interruptions in HIV testing activity and transmission which may
+have occurred as a result of COVID-19 lockdowns.
+
+Next, I apply multi-state models to patient admissions for COVID-19 to estimate hospitalised
+fatality risks and lengths of stay in hospital using a variety of linked hospital datasets. Changes
+in patient prognosis are estimated throughout each wave of infection, as well as the beneficial
+effect of vaccination, and the deleterious effect of hospital pressure on patient outcomes.
+
+Finally, I use multi-state models to estimate the real-world effectiveness of SARS-CoV-2
+vaccination among a cohort of healthcare workers in England. These models are applied in a
+causal inference framework and a 14% effectiveness of fourth dose vaccination against infection
+is estimated for this cohort, relative to a waned third dose.
+
+Multi-state models are a powerful tool for the estimation of infectious disease burden
+and have proven invaluable for research concerning the COVID-19 pandemic. The methods
+and applications in this thesis will inform future areas of research: accounting for population
+migration in HIV incidence estimates, developing an improved metric of hospital pressure, and
+assessing the effectiveness of future SARS-CoV-2 vaccine roll-outs.
+
+### License
+
+&copy; 2024. This work is openly licensed via [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).

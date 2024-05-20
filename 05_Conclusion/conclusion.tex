@@ -1,0 +1,306 @@
+%!TEX root = ../thesis.tex
+%*******************************************************************************
+%****************************** Fifth Chapter **********************************
+%*******************************************************************************
+\chapter{Conclusions}\label{cha:conclusions}
+
+The urgent public health response to the COVID-19 pandemic has involved significant biostatistical research, and led to numerous methodological advancements. Major inroads into our understanding of current and future infectious disease epidemics continue to be made through careful selection and application of these statistical tools.
+
+In this final chapter I summarise the main findings of the thesis and suggest potential developments and applications following on from my PhD research.
+
+\section{Overall summary}
+
+In this thesis I have explored the development of survival models and their application to increase knowledge for public health action. The specific focus of my research has been multi-state models, which I have applied in the context of associative and causal inference studies using Bayesian and frequentist methods, with this research adding to the published literature on the burden of infectious diseases.
+
+In each chapter of this thesis I have shown that detailed understanding of the data-generating processes and careful specification of multi-state models are required to address limitations in observational data sources. In each case the validity of model estimates depend on the ability to control for certain biases, such as misclassification, competing risks, and censoring.
+
+Causal inference provides a rigorous framework in which to identify and control for these biases, with the aim of making meaningful causal statements from observational data. Causal questions were considered throughout this thesis:\ the effect of lockdown, the impact of hospital pressure, and the effectiveness of vaccination. A key take-away from this work is that defining causal questions as clearly as possible in advance can help to inform both the study design and the choice of statistical method.
+
+The next section discusses the specific findings of each chapter, highlighting what was already known and what this thesis adds.
+
+\section{Main findings}
+
+\subsection{HIV incidence estimation}
+
+\subsubsection{What was already known}
+
+CD4 counts were known to dip during the acute (or seroconversion) phase of HIV infection. Whilst not an issue for earlier generation tests, the introduction of fourth-generation HIV tests and a rapid increase in regular HIV testing among GBM has implications for use of the CD4 marker as a measure of HIV progression. \cite{Sasse2016-gh} estimated that misclassification of late HIV diagnosis among gay and bisexual men in Belgium had increased from 5\% in 1998 to 41\% in 2012. This assessment was based on HIV testing history and clinical presentation among men diagnosed with a CD4 count <350 cells/mm\textsuperscript{3}. Meanwhile, a modified definition of late HIV diagnosis which reclassified individuals with primary HIV infection had been previously implemented in Sweden~\parencite{Brannstrom2016-nx}. The extent of this bias among individuals newly diagnosed with HIV in England, and the potential implications for HIV incidence estimation methods utilising CD4 counts at diagnosis were untested.
+
+Secondly, as a result of the COVID-19 lockdowns in England during 2020 and 2021 there was widespread disruption of both routine healthcare service provision and population mixing~\parencite{Mude2023-ec}. These effects likely impacted both the probability of diagnosis for HIV and the incidence of new cases~\parencite{Martin2023-um}. Since the HIV back-calculation parameterises diagnoses in terms of incidence of infection, fixed disease progression, and probability of diagnosis, the impact of a large-scale disruption on the unobserved aspects of the model needed to be tested.
+
+\subsubsection{What this thesis adds}
+
+I estimated the extent of bias in the late HIV diagnosis measurement among those diagnosed in England by comparing individual-level CD4 count data against evidence for recent HIV acquisition. Misclassification was found to have increased over time, from 10\% in 2015 to 18\% in 2018, and to vary according to route of exposure (25\% for GBM compared to 6\% and 7\% respectively for heterosexual men and women) and age group (up to 46\% for GBM aged 15--24 years). I published a revised definition of late HIV diagnosis~\parencite{Kirwan2022-za}, which has since been adopted by UKHSA and ECDC~\parencite{Martin2023-um, Croxford2022-cv}.
+
+To address the effect of this bias on the CD4 back-calculation model, I extended the multi-state model to incorporate additional recent infection states (see Figure~\ref{fig:ritamodel}). A simulation study was undertaken to verify that the resulting dual biomarker model could reconstruct underlying patterns of HIV incidence and diagnosis probabilities, and the model was applied to HIV diagnosis information for England.
+
+I investigated the sensitivity of the CD4 back-calculation model to large-scale disruptions in HIV testing and incidence during the COVID-19 lockdowns, demonstrating that the relative contributions of incidence and probability of diagnosis were appropriately weighted. This investigation establishes a methodological basis for examining counterfactual assumptions about future trends in HIV incidence and diagnosis.
+
+\subsection{Severity estimation}
+
+\subsubsection{What was already known}
+
+Hospitalised severity for individuals admitted to hospital for COVID-19 had been investigated during the first wave of the pandemic in the UK, with studies drawing associations between hospitalised fatality risk and demographic characteristics, such as age and comorbidity burden~\parencite{Ferrando-Vivas2021-ut, Docherty2021-es, Agrawal2021-ee, Gray2021-xk, Mathur2021-zf}.
+
+The data collection mechanisms used in these studies precluded real-time analysis of hospitalised severity, and none investigated trends in hospitalised severity or lengths of stay in hospital after the first wave. In mid-2020, discussions with clinicians and NHS England indicated an urgent need to understand the various pathways through hospital and how hospital pressures were impacting upon patient care.
+
+In 2021, subsequent to the introduction of widespread vaccination in England, estimates of vaccine effectiveness against adverse outcomes were reported in several studies~\parencite{Lopez_Bernal2021-gt, Thygesen2021-kg, UK_Health_Security_Agency2021-gw}. However, information concerning the impact of vaccination for individuals severe enough to require hospitalisation was scarce.
+
+\subsubsection{What this thesis adds}
+
+I estimated hospitalised severity and lengths of stay among people admitted to hospital for COVID-19 during the first two waves of infection and prior to vaccine introduction using a flexible, competing-risks, multi-state mixture model. This model was applied to real-time sentinel surveillance data to estimate in real-time the severity of emerging COVID-19 variants, and the association of hospitalised mortality with month of admission and other covariates.
+
+The third wave of COVID-19 in the UK occurred in a context of widespread population vaccination. I estimated the prognosis for hospitalised individuals over all three waves using a stratified Fine-Gray proportional hazards model, with adjustment for month of admission, patient characteristics, and vaccination status. Hospitalised severity and lengths of stay were found to vary substantially according to these covariates. Evidence of waning vaccine protection against hospitalised fatality had not previously been reported, and informed vaccine policy for those most at risk.
+
+\subsection{Effectiveness of interventions}
+
+\subsubsection{What was already known}
+
+By 2022 the effectiveness of first and second dose vaccination against SARS-CoV-2 infection and severe outcomes was well-established~\parencite{Andrews2022-qd, Hall2022-ep, Goldberg2021-wb}. Several UK studies had also investigated the effectiveness of booster vaccination, finding modest protection of third mRNA vaccines against symptomatic COVID-19 infection during the Omicron variant circulating period, with significant waning of protection from 2 months post-vaccination~\parencite{Hall2024-ai, Andrews2022-af, Kirsebom2022-co}. Vaccine effectiveness of fourth (bivalent) doses had not yet been investigated in the UK and international estimates varied considerably~\parencite{Link-Gelles2023-pt, Shrestha2023-oq}.
+
+Several studies had also investigated acquired immunity from infection, finding that a recent SARS-CoV-2 infection provided greater protection than booster vaccination, with waning of this protection beginning at 4--6 months post-infection~\parencite{Huiberts2023-kq, Auvigne2023-ay}. Estimates of the mean duration of PCR positivity varied in study-size and statistical methodology, and no studies had considered the duration of symptomatic vs.\ asymptomatic infection~\parencite{Boucau2022-it, Hay2022-sg, Kojima2022-vh}.
+
+The majority of these vaccine effectiveness studies relied on symptomatic testing and did not account for the potential impact of selection bias, test-seeking behaviour, and unmeasured confounding. Whilst a few studies had undertaken a formal causal assessment of vaccination, controlling for confounders~\parencite{Dagan2021-ow, Hulme2023-fw}, none had implemented this in a continuous-time multi-state model framework.
+
+\subsubsection{What this thesis adds}
+
+I estimated booster vaccine effectiveness and mean duration of SARS-CoV-2 PCR positivity by applying multi-state models for interval-censored data to the SIREN cohort. The effectiveness of a fourth booster vaccination was modest, and waned significantly after the first 2 months, whereas protection from a recent prior infection was more sustained. Duration of PCR positivity was estimated around 7 days, and was shorter for asymptomatic compared to symptomatic infections.
+
+In a causal analysis of vaccine protection, I estimated that the hypothetical scenario in which all healthcare worker received a fourth dose vaccination, compared to everyone remaining on a third dose, would avert around 14\% of infections in this cohort, although there was substantial uncertainty in this estimate.
+
+I presented interim vaccine effectiveness estimates from the SIREN study to UKHSA and the JCVI and these estimates have informed UK vaccination policy~\parencite{Department-of-Health-and-Social-Care2023-um}.
+
+\section{Methodological developments}
+
+This section brings together future methodological developments, motivated by different public health challenges and building on the main findings of the thesis. Common themes are highlighted, followed by a more detailed description of specific developments in each area.
+
+\subsection{Modelling cluster-level random effects}
+
+Both the hospital severity analysis in Chapter~\ref{cha:hospitalseverity} and vaccine effectiveness analysis in Chapter~\ref{cha:siren} were likely to be subject to a degree of unobserved correlation at the hospital (or cluster) level. Accounting for this correlation as a fixed effect led to the model parameters being unidentified. Incorporating hospital-specific random effects (i.e.\ a shared frailty model) instead would be desirable, and these frailty models can also be used to test the Markov assumption~\parencite{Titman2022-jt}. At present, frailty models cannot be implemented within the \texttt{msm} package, and the implementation in the \texttt{survival} package remains somewhat limited~\parencite{Jackson2021-ij, Therneau1999-to}.
+
+A novel method for fitting a flexible Cox proportional hazards model with a shared frailty term was proposed by~\cite{Gasperoni2020-cx} and may be applicable to the hospital severity analysis. An alternative approach would be specifying a Bayesian multi-state frailty model~\parencite{van-den-Hout2016-xy}, but the MCMC sampling which is required for Bayesian models can present significant computational challenges. These challenges are not unique to this setting and other authors have proposed scalable approaches for random effects in the BUGS modelling framework, and for joint longitudinal and multi-state models~\parencite{Chen2023-fo, Goudie2020-ra}.
+
+\subsection{Evidence synthesis}
+
+Evidence synthesis methods are a principled way to combine multiple sources of information. These methods have previously been used to model HIV prevalence by combining multiple data sources~\parencite{Presanis2011-uy, Welton2005-zf}. Future development could draw on the ideas of `Markov melding' to join the MPES prevalence model with the HIV back-calculation described in Chapter~\ref{cha:hivbackcalc}~\parencite{Goudie2019-pe}.
+
+For the hospital severity analyses in Chapter~\ref{cha:hospitalseverity}, evidence synthesis methods might also be used to explicitly model biases in the real-time SARI-Watch sentinel system, by combining these data with the comprehensive SUS hospital surveillance system~\parencite{De-Angelis2015-uy, Turner2009-bf}. Future analyses of the sentinel system could use estimates derived from this evidence synthesis as priors for a set of bias parameters in a Bayesian model, thereby obtaining bias-adjusted or `weighted' estimates in real time.
+
+\subsection{Observational study design}
+
+\cite{Cochran1965-uh} suggested that a well-designed observational study should resemble, as closely as possible, a controlled or randomised experiment.
+
+The observational cohort study design used for the SIREN study was particularly well-suited to a causal investigation of vaccine effectiveness, with a well-defined analysis plan and clear research question. The other studies in this thesis have instead utilised routine epidemiological data, with the primary analysis being less clear. A risk is that routine data may fail to collect important information on risk factors or case definitions, and may be limited in size or generalisability, limiting the scope of any potential research study. Careful study design can help to overcome some of these biases and may enhance epidemiological data collection, for instance stratifying the study population in a cross-sectional survey so that subgroups of interest are adequately represented~\parencite{Woodward2013-ef}.
+
+\subsection{HIV incidence estimation}
+
+\subsubsection{Age-dependent dual biomarker back-calculation}
+
+A previous extension to the CD4-only back-calculation model incorporated information on rates of HIV progression by age group to estimate age-specific HIV incidence and diagnosis rates~\parencite{Brizzi2019-yj}. Incorporating avidity assay information into this age-dependent back-calculation, as was done for the age-independent model in Chapter~\ref{cha:hivbackcalc}, may lend additional precision to the estimation of those age-groups at higher risk of infection, whilst accounting for age-dependency in the availability of the avidity assay data.
+
+\subsubsection{Incorporating migration in back-calculation}
+
+The back-calculation models presented in Chapter~\ref{cha:hivbackcalc} assume that individuals are `at risk' of diagnosis at any point following infection. This limits the model from being applied to populations with substantial incidence outside of England, since the estimated quantities would have a less clear interpretation, i.e.\ incidence estimates would include infections acquired both within and outside of England. Heterosexual populations, in particular, include a large proportion of migrants from sub-Saharan African countries with high prevalence of HIV~\parencite{Martin2023-um}.
+
+Incorporating a migration process as part of the model would be necessary to enable estimation of HIV incidence among groups with a large proportion of migrants, and would contribute to the estimation of pre and post-migration incidence for an increasingly diverse GBM population~\parencite{Palich2024-hz}. This development requires detailed information on the country of acquisition for newly diagnosed individuals, with patterns of migration incorporated to inform recent trends.
+
+Existing methods to assign country of HIV acquisition rely on CD4 decline slopes inferred from databases of HIV seroconverters, alongside information on age, ethnicity, and country of birth, to estimate the probable year of HIV acquisition at an individual level and compare this to the year of UK arrival. These methods apply similar HIV progression assumptions to the back-calculation, and have been implemented in both frequentist and Bayesian frameworks~\parencite{Pantazis2019-nr, Yin2021-me}.
+
+Experimental statistics on international migration since 2012 were recently published by the Office for National Statistics (ONS), albeit with information on migrants' nationality currently being very limited~\parencite{Cheatham2023-yb}. Recent trends in these estimates indicate a shift in migration patterns following the COVID-19 pandemic, with a rise in non-European Union migrants. These trends mirror a rise in HIV diagnoses among non-UK born heterosexual men and women since 2022~\parencite{Martin2023-um}.
+
+A sketch diagram describing a potential multi-state model specification which includes migration is shown in Figure~\ref{fig:back-calc-migration}. Here HIV incidence in the UK is separated from incidence outside of the country, with individuals entering a latent state following migration.
+
+\begin{figure}[htbp!]
+  \centering
+  \footnotesize
+  \begin{tikzpicture}
+    % Nodes
+    \node[] (m0) at (0,0) {};
+    \node[rstate, align=center] (m1) [right = of m0] {CD4$\geq$500\\($e_{1,j}$)};
+    \node[rstate, align=center] (m2) [right = of m1] {CD4 350-499\\($e_{2,j}$)};
+    \node[rstate, align=center] (m3) [right = of m2] {CD4 200-349\\($e_{3,j}$)};
+    \node[rstate, align=center] (m4) [right = of m3] {CD4<200\\($e_{4,j}$)};
+
+    \node[rstate, align=center] (n1) [below = of m1] {CD4$\geq$500\\($e_{5,j}$)};
+    \node[rstate, align=center] (n2) [below = of m2] {CD4 350-499\\($e_{6,j}$)};
+    \node[rstate, align=center] (n3) [below = of m3] {CD4 200-349\\($e_{7,j}$)};
+    \node[rstate, align=center] (n4) [below = of m4] {CD4<200\\($e_{8,j}$)};
+    \node[state, align=center] (n5) [right = of n4] {AIDS\\($\mu_{5,j}$)};
+    \node[] (n0) [left = of n1] {};
+
+    \node[state, align=center] (n6) [below = of n1] {CD4$\geq$500\\($\mu_{1,j}$)};
+    \node[state, align=center] (n7) [below = of n2] {CD4 350-499\\($\mu_{2,j}$)};
+    \node[state, align=center] (n8) [below = of n3] {CD4 200-349\\($\mu_{3,j}$)};
+    \node[state, align=center] (n9) [below = of n4] {CD4<200\\($\mu_{4,j}$)};
+    % Edges
+    \path (m0) edge node[above] {$h_j$} (m1);
+
+    \path (m1) edge node[] {$q_1$} (m2);
+    \path (m2) edge node[] {$q_2$} (m3);
+    \path (m3) edge node[] {$q_3$} (m4);
+
+    \path (m1) edge node[] {} (n1);
+    \path (m2) edge node[] {} (n2);
+    \path (m3) edge node[] {} (n3);
+    \path (m4) edge node[] {} (n4);
+
+    \path (m1) edge node[] {} (n2);
+    \path (m2) edge node[] {} (n3);
+    \path (m3) edge node[] {} (n4);
+    \path (m4) edge node[] {} (n5);
+
+    \path (n0) edge node[above] {$h_j$} (n1);
+    \path (n1) edge node[] {$q_1$} (n2);
+    \path (n2) edge node[] {$q_2$} (n3);
+    \path (n3) edge node[] {$q_3$} (n4);
+    \path (n4) edge node[] {$q_4$} (n5);
+
+    \path (n1) edge[dashed] node['] {$d_{2,j}$} (n6);
+    \path (n2) edge[dashed] node['] {$d_{3,j}$} (n7);
+    \path (n3) edge[dashed] node['] {$d_{4,j}$} (n8);
+    \path (n4) edge[dashed] node['] {$d_{5,j}$} (n9);
+
+    \draw [-][dashed] (0,-1) -- (15,-1);
+    \draw [-] (14,0) node [align=left] {\textbf{Outside UK}};
+    \draw [-] (14,-4) node [align=left] {\textbf{Within UK}};
+  \end{tikzpicture}
+  \caption[Sketch of CD4-staged back-calculation model including migration]{Sketch of CD4-staged back-calculation model including migration. Rounded boxes indicate latent states, square boxes indicate diagnosed states. Solid lines indicate HIV progression. Dashed lines indicate transition from latent to diagnosed state.}\label{fig:back-calc-migration}
+\end{figure}
+
+\subsubsection{Evaluation of interventions}
+
+Evidence-based assessments of HIV testing campaigns, provision of self-sampling and home HIV testing, PrEP, and condom usage have helped to inform HIV prevention efforts~\parencite{HIV_Commission2020-yy}. Most recently,~\cite{Cambiano2023-lj} used a mathematical model of HIV incidence to explore the contribution of expanded testing and earlier treatment initiation in reducing HIV incidence, and others have explored the specific impacts of PrEP in reducing HIV transmission~\parencite{Punyacharoensin2016-hs, Rozhnova2018-zp}. 
+
+Incorporating transmission dynamics into the back-calculation model might enable similar assessment about the effectiveness of interventions in reducing HIV transmission. Following the example of~\cite{Presanis2011-uy} and~\cite{Birrell2011-lx}, susceptible, infected, and treated components could be included in the model, with interaction between the infected and susceptible components for the generation of new infections.
+
+\subsubsection{HIV testing history data}
+
+Due to their cost, and the lack of standardisation between laboratories, HIV avidity assays are only undertaken in a few countries~\parencite{European_Centre_for_Disease_Prevention_and_Control2023-vt}. Data on HIV testing history can provide similar information about recent HIV acquisition, and incorporating these data into a back-calculation model may help to improve the precision of HIV incidence estimates in countries which lack avidity assay testing. As discussed in Chapter~\ref{cha:hivbackcalc}, a challenge in incorporating last negative HIV test information is that the equivalent `non-recent' classification cannot be inferred from testing history, and wider trends in testing would likely need to be modelled alongside incidence and diagnosis processes.
+
+\subsection{Severity estimation}
+
+\subsubsection{Robust measure of hospital pressure}
+
+In analyses of hospitalised fatality during the COVID-19 pandemic, increased hospital load, measured by number of admissions, was associated with poorer outcomes. This metric of load was relatively crude, however, and did not incorporate nuances in staffing ratios, ward capacity, or Red/Green ward demarcation~\parencite{NHS-England2020-xg}. Four key elements which limit ICU surge capacity during a pandemic have been pointed to:\ the availability of staff, consumables and essential equipment, bed-spaces, and management systems (so-termed `staff, stuff, space, and systems')~\parencite{Fong2024-hy, Gabriel2019-xm}.
+
+An improved measure of hospital pressure should consider the demand and supply sides of these four elements, and could be a composite of several metrics to indicate which trusts are experiencing (or likely to experience) extreme pressure. This measure would provide actionable information to the NHS, allowing targeted interventions to better balance load across the healthcare service.
+
+Whilst the range of data currently available are limited, measures of hospital demand might include:\ the number of occupied beds, number of patients arriving at emergency care, and transfers from other hospitals. Information on staffing levels (or patient:staff ratios) on any given day, delays in emergency care admission, and the number of continuous days that clinicians have been on duty might be examples of supply (Figure~\ref{fig:hospital-pressure}).
+
+\begin{figure}[htbp!]
+  \centering
+  \begin{tikzpicture}
+    % Nodes
+    \node[align=center] (m0) at (0,0) {Hospital\\pressure};
+
+    % Demand
+    \node[align=center] (m1) [above right = of m0] {Patients arriving\\at emergency care};
+    \node[align=center] (m2) [above = of m0] {Number of\\occupied beds};
+    \node[align=center] (m3) [above left = of m0] {Transfers from\\other hospitals};
+
+    % Supply
+    \node[align=center] (n1) [below right = of m0] {Patient:staff\\ratio};
+    \node[align=center] (n2) [below = of m0] {Available beds\\on wards};
+    \node[align=center] (n3) [below left = of m0] {Number of days\\on duty};
+
+    % Edges
+    \path (m1) edge (m0);
+    \path (m2) edge (m0);
+    \path (m3) edge (m0);
+
+    \path (n1) edge (m0);
+    \path (n2) edge (m0);
+    \path (n3) edge (m0);
+
+    \draw [-] (-7,-2.2) node [align=left] {\textbf{Supply}};
+    \draw [-] (-7,2.2) node [align=left] {\textbf{Demand}};
+  \end{tikzpicture}
+  \caption[Factors of supply and demand which may be indications for hospital pressure]{Factors of supply and demand which may be indications for hospital pressure.}\label{fig:hospital-pressure}
+\end{figure}
+
+Of course, the complexities of hospital pressure expand well beyond these factors, and it is infeasible that any single quantitative measure could succinctly represent all aspects of pressure within a healthcare system. Qualitative surveys can help to refine our understanding about the effects of hospital pressure:\ during the COVID-19 pandemic qualitative surveys among ICU clinicians found substantial rates of poor mental health, with half reporting symptoms consistent with probable post-traumatic stress disorder, leading to operational impairment, and likely to further increase pressure on services~\parencite{Hall2022-ck, Greenberg2021-wc}. Implementation of qualitative surveys and assessments of the limits of capacity should be a key consideration for future studies~\parencite{Fong2024-hy}.
+
+\subsubsection{Causal relationships for hospital severity}
+
+A causal diagram, introduced in Section~\ref{sec:causal-inference}, can aid in visualising which relationships to consider to make causal inference from observational hospital data. Figure~\ref{fig:hosp-dag} shows the causal relationship between a range of covariates collected at hospital admission and hospitalised severity.
+
+\begin{figure}[htbp!]
+  \centering
+  \begin{tikzpicture}
+    % x node set with absolute coordinates
+    \node (z) at (0,0) {Severity};
+    \node (a) [above left =16mm and -5mm of z] {Vaccination};
+    \node (g) [above right =15mm and -5mm of z] {Hospital pressure};
+
+    \node (b) [above = 31mm of a] {Month of admission};
+    \node (c) [right =of g] {IMD};
+    \node (j) [above =of g] {Hospital};
+    \node (f) [above = 30mm of g] {Region};
+    \node (i) [above =of c] {Ethnicity};
+
+    \node (d) [below left =0mm and 20mm of a] {Comorbidity};
+    \node (e) [above=of d] {Sex};
+    \node (h) [right=of e] {Age};
+
+    % Directed edge
+    \path (a) edge (z);
+    \path (c) edge (z);
+    \path (d) edge (z);
+    \path (e) edge (z);
+    \path (g) edge (z);
+    \path (h) edge (z);
+
+    \path (b) edge (a);
+    \path (b) edge (h);
+    \path (b) edge (e);
+    \path (h) edge (a);
+    \path (h) edge (d);
+    \path (e) edge (d);
+    \path (h) edge[bend left=7] (c);
+    \path (b) edge (g);
+
+    \path (i) edge (c);
+    \path (j) edge (g);
+    \path (j) edge[bend right=30] (z);
+    \path (f) edge (i);
+    \path (f) edge (j);
+    \path (f) edge (c);
+  \end{tikzpicture}
+  \caption[Causal DAG of discrete measurements for hospitalised patients]{Causal DAG of discrete measurements for hospitalised patients.}\label{fig:hosp-dag}
+\end{figure}
+
+In this causal diagram, the `Hospital' covariate is a confounder which influences both hospital pressure and hospitalied severity, with the path `Hospital pressure $\leftarrow$ Hospital $\rightarrow$ Severity' known as a `backdoor path'. For a causal analysis this covariate should be conditioned on~\parencite{Hernan2023-de}. Where this is not possible, e.g.\ due to identifiability issues, other summaries of the hospital covariate could be considered, or the inclusion of cluster-level random effects as discussed earlier in this section.
+
+\subsection{Effectiveness of interventions}
+
+\subsubsection{Retrospective assessment of SARS-CoV-2 vaccine effectiveness}
+
+So far, multi-state models have only been applied to investigate the vaccine effectiveness of fourth doses in the SIREN dataset. However, with a large quantity of available testing data, a retrospective analysis could also be undertaken. This analysis might utilise all of the available PCR and antibody testing data to estimate the time-varying protection of vaccination and prior infection throughout the COVID-19 pandemic. Given the large number of parameters that would be included in these models, and limited availability of data, the scalable approaches to include fixed and random effects previously discussed should be investigated.
+
+\section{Applications of multi-state models}
+
+As well as methodological developments, there are several future applications of multi-state models where the findings of this thesis can be directly applied.
+
+\subsection{Ongoing monitoring of infectious disease burden}
+
+Ongoing monitoring of HIV incidence, COVID-19 hospital pressures, and vaccine effectiveness utilising the multi-state models described in this thesis will continue to provide information for public health action.
+
+For HIV, annually updated incidence estimates will help to inform progress towards the UK's stated goal of eliminating HIV as a public health threat by 2030, with projections of future incidence helping to gauge progress towards these goals~\parencite{HIV_Commission2020-yy}.
+
+The well-documented and actively maintained competing risks multi-state models used to estimate risks of hospitalised fatality and lengths of stay address specific challenges in observational data~\parencite{Jackson2022-lt, Kirwan2022-cs}. These methods will continue to be applied to routinely collected data to assess the changing burden of COVID-19 and provide information about novel variants and diseases.
+
+The multi-state models developed for the SIREN study will be applied to data collected over the autumn/winter 2023/24 period to provide updated fifth dose vaccine effectiveness estimates~\parencite{UK_Health_Security_Agency2023-xb}. As well as protection against acquisition of infection, this research will aim to answer key policy questions about the effect of vaccination on the clinical significance of infection.
+
+\subsection{Collaborations and knowledge transfer}
+
+Disseminating information about multi-state models and enhancing the user-friendliness of these methods has led to increased adoption by public health agencies~\parencite{van-Sighem2015-zo, Kirwan2024-hj}. Collaboration between researchers and public health agencies will continue to promote high quality research and knowledge transfer.
+
+The importance of this collaboration has been recognised by the Health Protection Research Units (HPRUs). These research partnerships between universities and UKHSA encourage high quality research to mitigate the impact of public health emergencies~\parencite{National-Institute-for-Health-and-Care-Research2024-oq}.
+
+\subsection{Statistical communication}
+
+Finally, communicating the strengths and limitations of multi-state model estimates to the wider community of public health practitioners, healthcare professionals, the media, and the public is important to ensure correct interpretation of research findings, and to understand when and why estimates are more useful than data alone.
+
+For HIV, incidence estimates are regularly used by government bodies and third sector organisations, such as the National AIDS Trust and Terrence Higgins Trust, in their reports and prevention campaigns~\parencite{Martin2023-um, Terrence-Higgins-Trust2023-vk}. Biostatisticians have a role in supporting these organisations to understand and communicate the uncertainty around different estimates.
+
+During the COVID-19 pandemic, much of the reporting of statistical estimates by media organisations in the UK was of low scientific quality and may have failed to alert readers to public-health risks~\parencite{Mach2021-gn}. Uncertainty around estimates tended to be particularly poorly communicated, and may influence the perceived trustworthiness of statistics~\parencite{van-der-Bles2019-kq, Schneider2022-pe}.

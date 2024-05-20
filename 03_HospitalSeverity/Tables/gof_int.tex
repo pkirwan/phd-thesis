@@ -1,0 +1,25 @@
+\begin{table}[!h]
+\centering
+\caption{\label{tab:gof_int}Log-likelihood and AIC values for for log-normal and generalized gamma distributions, by inclusion of interaction of month and sex covariate, sorted by sub-model and AIC. Models with unidentifiable parameters not shown.}
+\centering
+\begin{tabular}[t]{lllllrr}
+\toprule
+Sub-model & $\pi$ & ICU & Death & Discharge & Log-likelihood & AIC\\
+\midrule
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{-77213.81} & \cellcolor{gray!10}{154559.61}\\
+Hospital & $\times$ & + & + & + & -77203.13 & 154566.27\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{$\times$} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{-77210.84} & \cellcolor{gray!10}{154567.67}\\
+Hospital & + & + & + & $\times$ & -77206.31 & 154572.63\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{$\times$} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{-77206.47} & \cellcolor{gray!10}{154572.94}\\
+Hospital & $\times$ & $\times$ & + & + & -77200.18 & 154574.37\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{$\times$} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{$\times$} & \cellcolor{gray!10}{-77195.40} & \cellcolor{gray!10}{154578.80}\\
+Hospital & $\times$ & + & $\times$ & + & -77196.72 & 154581.43\\
+\cellcolor{gray!10}{ICU} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{-8662.31} & \cellcolor{gray!10}{17418.62}\\
+ICU & $\times$ & + & + & + & -8655.85 & 17419.69\\
+\cellcolor{gray!10}{ICU} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{$\times$} & \cellcolor{gray!10}{-8651.46} & \cellcolor{gray!10}{17424.92}\\
+ICU & $\times$ & + & + & $\times$ & -8644.89 & 17425.79\\
+\cellcolor{gray!10}{ICU} & \cellcolor{gray!10}{$\times$} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{$\times$} & \cellcolor{gray!10}{+} & \cellcolor{gray!10}{-8650.85} & \cellcolor{gray!10}{17437.70}\\
+ICU & + & + & $\times$ & + & -8658.08 & 17438.16\\
+\bottomrule
+\end{tabular}
+\end{table}

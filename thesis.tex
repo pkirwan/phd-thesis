@@ -1,0 +1,96 @@
+% ******************************* PhD Thesis Class **************************
+
+\documentclass[a4paper,12pt,times,custombib,oneside]{PhDThesisPSnPDF}
+
+% `oneside' or `twoside'
+% `print' for print mode
+% `abstract' for abstract mode
+% `chapter' for chapter mode
+
+\ifdefineChapter
+ % \includeonly{02_HIVBackCalc/hivbackcalc, 02_HIVBackCalc/appx_hivbackcalc}
+ \includeonly{04_SIREN/siren, 04_SIREN/appx_siren}
+\fi
+
+% ********************************** Page style **********************************
+
+\pagestyle{PageStyleII}
+
+% `default (leave empty)': Page numbers opposite chapter and section name in header
+%
+% `PageStyleI': Page numbers | chapter and section name in header
+%
+% `PageStyleII': Page numbers in footer, chapter and section name in header
+
+% ********************************** Preamble **********************************
+% Contains packages and settings
+\input{packages}
+
+% For NEJM style: %bibstyle=nejm, citestyle=numeric
+\RequirePackage[backend=biber, style=authoryear, minbibnames=4, maxbibnames=4, maxcitenames=2, mincitenames=1, sorting=anyt, sortcites=true, url=true, doi=true, uniquename=false, useprefix=false, giveninits=true, dashed=false, isbn=false]{biblatex}
+
+% Contains additional bibliography modifications
+\input{References/bibstyle}
+
+% ************************ Thesis Information **********************************
+% Thesis title and author information
+\input{thesis-info}
+\title{Multi-state modelling to estimate infectious disease burden}
+
+% ******************************** Front Matter ********************************
+\begin{document}
+
+% \frontmatter % make everything mainmatter for consistent numbering
+\mainmatter
+
+\maketitle
+
+\include{00_FrontMatter/dedication}
+\include{00_FrontMatter/declaration}
+\include{00_FrontMatter/acknowledgement}
+\include{00_FrontMatter/abstract}
+\include{00_FrontMatter/preface}
+\include{00_FrontMatter/impact}
+
+% *********************** TOC, Lists and Nomenclature ***********************
+
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+\begin{spacing}{0.9}
+\printnomenclature
+\end{spacing}
+
+% ******************************** Main Matter *********************************
+
+\include{01_Introduction/introduction}
+\include{01_Introduction/methods}
+\include{02_HIVBackCalc/hivbackcalc}
+\include{03_HospitalSeverity/hospitalseverity}
+\include{04_SIREN/siren}
+\include{05_Conclusion/conclusion}
+
+% ********************************** Bibliography ******************************
+\begin{spacing}{0.9}
+
+\cleardoublepage
+\printbibliography[title=References, heading=bibintoc]
+
+\end{spacing}
+
+% ********************************** Appendices ********************************
+
+\begin{appendices}
+
+\include{00_FrontMatter/publications}
+\include{01_Introduction/appx_methods}
+\include{02_HIVBackCalc/appx_hivbackcalc}
+\include{03_HospitalSeverity/appx_hospitalseverity}
+\include{04_SIREN/appx_siren}
+
+\end{appendices}
+
+\end{document}

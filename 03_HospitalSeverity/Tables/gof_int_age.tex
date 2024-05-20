@@ -1,0 +1,34 @@
+\begin{table}[!h]
+\centering
+\caption{\label{tab:gof_int_age}Log-likelihood and AIC values for for log-normal and generalized gamma distributions, by inclusion of interaction of month and age group covariate, sorted by sub-model and AIC. Models with unidentifiable parameters not shown.}
+\centering
+\begin{tabular}[t]{lllllrr}
+\toprule
+Sub-model & $\pi$ & ICU & Death & Discharge & Log-likelihood & AIC\\
+\midrule
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\sigma, \mu$} & \cellcolor{gray!10}{-74507.16} & \cellcolor{gray!10}{149258.33}\\
+Hospital & $\checkmark$ &  &  & $\sigma, \mu$ & -74472.88 & 149273.76\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\mu$} & \cellcolor{gray!10}{-74539.05} & \cellcolor{gray!10}{149280.10}\\
+Hospital &  &  &  & $\sigma$ & -74545.95 & 149293.89\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\mu$} & \cellcolor{gray!10}{-74506.44} & \cellcolor{gray!10}{149298.89}\\
+Hospital &  &  &  &  & -74569.99 & 149299.98\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\mu$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{-74550.31} & \cellcolor{gray!10}{149302.62}\\
+Hospital & $\checkmark$ &  &  & $\sigma$ & -74514.02 & 149314.05\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\mu$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{-74558.15} & \cellcolor{gray!10}{149318.29}\\
+Hospital & $\checkmark$ &  &  &  & -74538.34 & 149320.68\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\mu$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{-74517.84} & \cellcolor{gray!10}{149321.68}\\
+Hospital &  &  & $\sigma$ &  & -74562.25 & 149326.51\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\mu$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{-74525.54} & \cellcolor{gray!10}{149337.09}\\
+Hospital & $\checkmark$ &  & $\sigma$ &  & -74530.10 & 149346.20\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\sigma, \mu$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{-74551.19} & \cellcolor{gray!10}{149346.39}\\
+Hospital & $\checkmark$ &  & $\sigma, \mu$ &  & -74515.30 & 149358.60\\
+\cellcolor{gray!10}{ICU} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\sigma$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{-8471.84} & \cellcolor{gray!10}{17099.69}\\
+ICU &  &  &  &  & -8497.76 & 17109.53\\
+\cellcolor{gray!10}{ICU} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\sigma$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{-8461.73} & \cellcolor{gray!10}{17121.46}\\
+ICU &  &  & $\mu$ &  & -8483.82 & 17123.65\\
+\cellcolor{gray!10}{ICU} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{-8486.04} & \cellcolor{gray!10}{17128.07}\\
+ICU & $\checkmark$ &  & $\sigma, \mu$ &  & -8445.41 & 17130.83\\
+\cellcolor{gray!10}{ICU} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\mu$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{-8474.92} & \cellcolor{gray!10}{17147.85}\\
+\bottomrule
+\end{tabular}
+\end{table}

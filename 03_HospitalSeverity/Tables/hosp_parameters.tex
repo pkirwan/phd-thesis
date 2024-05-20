@@ -1,0 +1,22 @@
+\begin{table}[htbp!]
+    \caption{\label{tab:hosp-parameters}Distribution and location of parameters chosen for each sub-model.}
+    \centering
+    \begin{tabular}{l c c}
+        \toprule
+    Transition             & to ICU transition & Discharge and Death transitions\\
+        \midrule
+        (i) from hospital sub-model & {} & {}         \\
+
+        \hspace{1em} Distribution       & Log-Normal   & Generalized Gamma \\
+
+        \hspace{1em} Covariates included on & log(mean) ($\mu$) & Mean ($\mu$) and scale ($\sigma$) \\
+
+        (ii) from ICU sub-model & {} & {} \\
+
+        \hspace{1em} Distribution         & {}  & Generalized gamma          \\
+
+        \hspace{1em} Covariates included on & {} & Mean ($\mu$) and scale ($\sigma$) \\
+
+        \bottomrule
+    \end{tabular}
+\end{table}

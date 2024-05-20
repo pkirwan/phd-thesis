@@ -1,0 +1,114 @@
+%!TEX root = ../thesis.tex
+%*******************************************************************************
+%****************************** Chapter 2 appendix *********************************
+%*******************************************************************************
+\chapter{Appendix to Chapter 4}\label{appx:hospitalseverity}
+
+\graphicspath{{03_HospitalSeverity/Figs/}}
+
+\section{Pre-vaccine hospitalised severity}
+
+\begingroup\footnotesize
+\input{03_HospitalSeverity/Tables/sari_characteristics}
+\endgroup
+
+\subsection{Goodness of fit}\label{appendix:sari-gof}
+
+For the SARI-Watch data, goodness of fit of the parametric mixture models was assessed by comparing non-parametric Aalen-Johansen cumulative incidence curves to estimates derived from the parametric model. A log-normal distribution was used for the hospital to ICU transition, and generalized gamma distributions used for other transitions. Figures~\ref{fig:sari-gof-hosp} and~\ref{fig:sari-gof-icu} show goodness of fit for each of the sub-models, by month of admission (panel A) and month of admission and sex (panel B).
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{sari_gof_hosp.pdf}
+    \caption[Goodness of fit for from Hospital sub-model in SARI-Watch data, March 2020 to February 2021]{Goodness of fit for sub-model (i) from Hospital, by month of admission (panel A), and sex (panel B) in SARI-Watch data, March 2020 to February 2021. Solid lines are Aalen-Johansen cumulative incidence curves, dashed lines are parametric mixture model estimates. Error bands are 95\% CIs, derived from 1000 simulation replicates.}\label{fig:sari-gof-hosp}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{sari_gof_icu.pdf}
+    \caption[Goodness of fit for from ICU sub-model in SARI-Watch data, March 2020 to February 2021]{Goodness of fit for sub-model (ii) from ICU, by month of admission (panel A), and sex (panel B) in SARI-Watch data, March 2020 to February 2021. Solid lines are Aalen-Johansen cumulative incidence curves, dashed lines are parametric mixture model estimates. Error bands are 95\% CIs, derived from 1000 simulation replicates.}\label{fig:sari-gof-icu}
+\end{figure}
+
+\subsection{Outcomes following ICU admission}\label{appendix:sari-icu}
+
+The estimated probability of death among patients admitted to critical care by month of admission, sex, age group, and number of comorbidities is shown in Figure~\ref{fig:sari-icu-prob}, panels A--D. The probability of death following ICU admission fell from \var{sari_icu_death_mar} in March 2020 to \var{sari_icu_death_jun} in June-August 2020, increased to \var{sari_icu_death_oct} in October and plateaued at around \var{sari_icu_death_novdec} between November and December 2021. The probability of death following ICU admission was estimated to be greater among older patients compared to younger patients, although confidence intervals are wide for these smaller sub-groups.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{sari_icu_prob.pdf}
+    \caption[Probability of death following ICU admission in SARI-Watch data, March 2020 to February 2021]{Probability of death following ICU admission, by month of admission (panel A), sex (panel B), age group (panel C), and number of comorbidities (panel D) in SARI-Watch data, March 2020 to February 2021. Error bands are 95\% CIs to represent uncertainty in the estimated probability.}\label{fig:sari-icu-prob}
+\end{figure}
+
+Figure~\ref{fig:sari-med-time-icu}, panels A--D, shows lengths of stay in ICU by month of admission, sex, age group, and number of comorbidities. Compared to non-critical care patients, those admitted to critical care spent longer in hospital. Median length of stay in ICU prior to discharge initially reduced from \var{sari_los_icu_disc_mar} in March 2020 to \var{sari_los_icu_disc_jun} in June-August 2020, then increased to \var{sari_los_icu_disc_dec} in December 2020. Median length of stay in ICU prior to death showed less variability over time, ranging between \var{sari_los_icu_death} days.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{sari_med_time_icu.pdf}
+    \caption[Estimated median time to event following ICU admission in SARI-Watch data, March 2020 to February 2021]{Estimated median time to event following ICU admission in SARI-Watch data, by month of admission (panel A), sex (panel B), age group (panel C), and number of comorbidities (panel D), March 2020 to February 2021. Line ranges are 95\% CIs around the median.}\label{fig:sari-med-time-icu}
+\end{figure}
+
+\clearpage
+
+\section{Post-vaccine hospitalised severity}
+
+\subsection{Weighted median with weighted ties}\label{sec:weighted-median}
+
+For the $n$ elements in $\bm{x} = (x_1, x_2, \ldots, x_n)$ with positive weights $\bm{w} = (w_1, w_2, \ldots, w_n)$ and $S = \sum_n w_n$, the weighted median is the element $x_k$ where~\parencite{Cormen2022-pi}:
+%
+\begin{align*}
+    \sum_{i<k} w_i & \leq \frac{S}{2} \\
+    \sum_{i>k} w_i & \leq \frac{S}{2}
+\end{align*}
+
+When ties occur between two values $x_k$ which satisfy the weighted median criteria, the median is a weighted average of the two values, weighted by the sum of weights for all values $x_i \leq x_k$, and $x_i \geq x_k$, respectively.
+
+\begingroup\footnotesize
+\input{03_HospitalSeverity/Tables/sus_characteristics}
+\endgroup
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{hfr_month_sex.pdf}
+    \caption[Hospitalised fatality risk and median length of stay by month of admission and sex in SUS data, March 2020 to April 2022]{Hospitalised fatality risk (panel A) and median length of stay (panel B) by month of admission and sex in SUS data, March 2020 to April 2022. Unadjusted for other covariates. Error bars and line ranges are 95\% CIs.}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{hfr_month_age.pdf}
+    \caption[Hospitalised fatality risk and median length of stay by month of admission and age group in SUS data, March 2020 to April 2022]{Hospitalised fatality risk (panel A) and median length of stay (panel B) by month of admission and age group in SUS data, March 2020 to April 2022. Unadjusted for other covariates. Error bars and line ranges are 95\% CIs.}\label{fig:hfr-month-age}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{hfr_month_ethn.pdf}
+    \caption[Hospitalised fatality risk and median length of stay by month of admission and ethnicity in SUS data, March 2020 to April 2022]{Hospitalised fatality risk (panel A) and median length of stay (panel B) by month of admission and ethnicity in SUS data, March 2020 to April 2022. Unadjusted for other covariates. Error bars and line ranges are 95\% CIs.}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{hfr_month_cci.pdf}
+    \caption[Hospitalised fatality risk and median length of stay by month of admission and CCI in SUS data, March 2020 to April 2022]{Hospitalised fatality risk (panel A) and median length of stay (panel B) by month of admission and CCI in SUS data, March 2020 to April 2022. Unadjusted for other covariates. Error bars and line ranges are 95\% CIs.}\label{fig:hfr-month-cci}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{hfr_month_load.pdf}
+    \caption[Hospitalised fatality risk and median length of stay by month of admission and hospital load in SUS data, March 2020 to April 2022]{Hospitalised fatality risk (panel A) and median length of stay (panel B) by month of admission and hospital load in SUS data, March 2020 to April 2022. Unadjusted for other covariates. Error bars and line ranges are 95\% CIs.}\label{fig:hfr-month-load}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{fg_hazards.pdf}
+    \caption[Hospitalised fatality sub-distribution hazard ratios for sex, ethnicity, IMD quintile, hospital load and CCI in SUS data, March 2020 to April 2022]{Hospitalised fatality sub-distribution hazard ratios for sex, ethnicity, IMD quintile, hospital load and CCI in SUS data, March 2020 to April 2022. Figure shows point estimate of hazard ratio with 95\% CIs.}\label{fig:fg-hazards}
+\end{figure}
+
+\cleardoublepage
+
+\subsection{Epidemic phase bias}\label{appendix:epi-phase-bias}
+
+Figure~\ref{fig:fg-shift} shows the results of sensitivity analyses where the date of symptom onset was shifted later in time by $c = 0,1,2,3,4$ days for those who died, but not for those who were discharged. This model included stratification on age group, region of residence, and vaccination status, and regression adjustment on month of hospital admission, sex, ethnicity, IMD quintile, hospital load, and CCI\@.
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{fg_shift.pdf}
+    \caption[Hospitalised fatality sub-distribution hazard ratio by month of symptom onset and sensitivity in SUS data, March 2020 to April 2022]{Hospitalised fatality sub-distribution hazard ratio by month of symptom onset and sensitivity in SUS data, March 2020 to April 2022. Reference group:\ June 2020. Figure shows point estimate of hazard ratio with 95\% CIs.}\label{fig:fg-shift}
+\end{figure}

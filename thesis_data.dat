@@ -1,0 +1,79 @@
+hivww, 74.9
+prop_recent, 40.9
+prop_cd4_1524, 15.7
+prop_cd4_2534, 13.6
+prop_cd4_3549, 12.3
+prop_cd4_5064, 18.2
+prop_cd4_65, 22.2
+assay_avail_low, 51.4
+assay_avail_high, 63.8
+prob_250_2018, 59.9
+prob_50_2018, 40.7
+prob_250_2022, 17.1
+prob_50_2022, 4.9
+est_hiv_2030, 593 (90\% CrI 52 to 5198)
+est_hiv_2025, 582 (90\% CrI 125 to 2108)
+sari_hosp_icu_mar, 14.2\% (95\% CI 13.1 to 15.5\%)
+sari_hosp_icu_may, 6.0\% (95\% CI 5.0 to 7.1\%)
+sari_hosp_icu_oct, 10.4\% (95\% CI 9.0 to 11.8\%)
+sari_hosp_icu_novdec, 8\%
+sari_hosp_icu_mar_4565, 23.8\% (95\% CI 21.1 to 26.2\%)
+sari_hosp_icu_mar_75, 4.6\% (95\% CI 3.7 to 5.9\%)
+sari_icu_death_mar, 48.6\% (95\% CI 44.2 to 52.3\%)
+sari_icu_death_jun, 24.1\% (95\% CI 15.8 to 34.6\%)
+sari_icu_death_oct, 49.6\% (95\% CI 42.2 to 56.3\%)
+sari_icu_death_novdec, 37\%
+sari_los_hosp_icu, 1.1
+sari_los_hosp_death_mar, 6.5 days (95\% CI 6.0 to 7.0 days)
+sari_los_hosp_death_dec, 9.3 days (95\% CI 8.6 to 10.1 days)
+sari_los_hosp_disc_mar, 6.3 days (95\% CI 5.9 to 6.7 days)
+sari_los_hosp_disc_jun, 3.9 days (95\% CI 3.6 to 4.3 days)
+sari_los_hosp_disc_dec, 8.0 days (95\% CI 7.5 to 8.6 days)
+sari_los_hosp_disc_mar_75, 10.8 days (95\% CI 10.2 to 11.6 days)
+sari_los_hosp_disc_mar_1545, 3.2 days (95\% CI 3.0 to 3.5 days)
+sari_los_icu_disc_mar, 24.0 days (95\% CI 20.5 to 28.1 days)
+sari_los_icu_disc_jun, 13.4 days (95\% CI 9.8 to 18.0 days)
+sari_los_icu_disc_dec, 19.1 days (95\% CI 15.3 to 23.2 days)
+sari_los_icu_death, 9 and 14
+sari_hfr_mar, 32.0\% (95\% CI 30.5 to 33.7\%)
+sari_hfr_jun, 11.3\% (95\% CI 9.6 to 13.1\%)
+sari_hfr_dec, 23.1\% (95\% CI 21.6 to 24.9\%)
+sari_hfr_feb, 15.9\% (95\% CI 14.4 to 17.7\%)
+sari_hfr_dec_age_75, 39.4\% (95\% CI 36.3 to 42.3\%)
+sari_hfr_dec_comorb_3, 35.9\% (95\% CI 30.9 to 41.5\%)
+sus_hfr_mar20, 34.2\% (95\% CI 33.5 to 34.9\%)
+sus_hfr_aug20, 10.7\% (95\% CI 9.1 to 12.5\%)
+sus_hfr_jan21, 21.0\% (95\% CI 20.7 to 21.2\%)
+sus_hfr_mar21, 9.5\% (95\% CI 8.9 to 10.2\%)
+sus_hfr_oct21, 11.5\% (95\% CI 11.1 to 11.9\%)
+sus_los_disc_mar20, 6.7 days (95\% CI 6.6 to 6.7 days)
+sus_los_disc_aug20, 3.4 days (95\% CI 3.2 to 3.5 days)
+sus_los_death_mar20, 6.0 days (95\% CI 6.0 to 6.1 days)
+sus_los_death_aug20, 9.8 days (95\% CI 9.3 to 10.4 days)
+sus_hfr_load_mar_90, 35.7\% (95\% CI 32.7 to 38.9\%)
+sus_hfr_load_mar_0, 32.8\% (95\% CI 31.1 to 34.5\%)
+sus_hfr_load_nov_90, 17.6\% (95\% CI 15.6 to 19.7\%)
+sus_hfr_load_nov_0, 15.8\% (95\% CI 15.0 to 16.7\%)
+sus_haz_vac1_36, 0.87 (95\% CI 0.80 to 0.94)
+sus_haz_vac1_612, 0.96 (95\% CI 0.80 to 0.94)
+sus_haz_vac2_26, 0.71 (95\% CI 0.59 to 0.85)
+sus_haz_vac3_26, 0.68 (95\% CI 0.63 to 0.74)
+sus_haz_asian, 1.12 (95\% CI 1.08 to 1.17)
+sus_haz_black, 0.87 (95\% CI 0.83 to 0.92)
+sus_haz_female, 0.80 (95\% CI 0.78 to 0.81)
+sus_haz_cci5, 3.91 (95\% CI 3.76 to 4.07)
+sus_haz_dep, 1.14 (95\% CI 1.10 to 1.18)
+prop_vu_65, 77.2
+prop_vu_2534, 59.7
+prop_inf_naive, 71.8
+prop_inf_06, 65.6
+prop_ft_wt, 83.0
+prop_ft_alpha, 85.6
+prop_ft_delta, 80.7
+prop_ft_bq, 58.7
+exp_obs, 1069 (95\% CI 1013 to 1125)
+exp_biw, 1310 (95\% CI 1242 to 1373)
+inf_averted, 287 (95\% CI 181 to 392)
+pct_averted, 11.3\% (95\% CI 7.3 to 15.2\%)
+inf_averted_obs, 225 (95\% CI 142 to 311)
+inf_averted_biw, 266 (95\% CI 178 to 356)

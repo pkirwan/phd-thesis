@@ -1,0 +1,27 @@
+\begin{table}[!h]
+\centering\centering
+\caption{\label{tab:cox_table}List of Cox proportional hazards models used to generate estimates, with number of individuals, inclusion of symptom information, and list of covariates. $\checkmark$: covariate included as main effect in regression, s: covariate included with stratification.}
+\centering
+\begin{tabular}[t]{lllll}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{4}{c}{Cox proportional hazards model} \\
+\cmidrule(l{3pt}r{3pt}){2-5}
+  & C1 & C2 & C3 & C4\\
+\midrule
+\cellcolor{gray!10}{N (individuals in model)} & \cellcolor{gray!10}{9560} & \cellcolor{gray!10}{9560} & \cellcolor{gray!10}{7549} & \cellcolor{gray!10}{7549}\\
+Symptom data (Y/N) & N & N & N & N\\
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Covariates}}\\
+\cellcolor{gray!10}{\hspace{1em}Month} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{}\\
+\hspace{1em}Binary vaccination status & $\checkmark$ &  & $\checkmark$ & \\
+\cellcolor{gray!10}{\hspace{1em}Vaccination status} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{}\\
+\hspace{1em}Time since infection &  &  & $\checkmark$ & $\checkmark$\\
+\cellcolor{gray!10}{\hspace{1em}\makecell[l]{Vaccination:time since\\infection (interaction term)}} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$}\\
+\hspace{1em}Region & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$\\
+\cellcolor{gray!10}{\hspace{1em}Age group} & \cellcolor{gray!10}{s} & \cellcolor{gray!10}{s} & \cellcolor{gray!10}{s} & \cellcolor{gray!10}{s}\\
+\hspace{1em}Household status & s & s & s & s\\
+\cellcolor{gray!10}{\hspace{1em}Gender} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$}\\
+\hspace{1em}Occupation/setting & s & s & s & s\\
+\bottomrule
+\end{tabular}
+\end{table}

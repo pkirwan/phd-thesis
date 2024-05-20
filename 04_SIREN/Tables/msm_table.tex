@@ -1,0 +1,27 @@
+\begin{table}[!h]
+\centering\centering
+\caption{\label{tab:msm_table}List of multi-state models used to generate estimates, with number of individuals, inclusion of symptom information, and list of covariates. $\checkmark$: covariate included as main effect in regression, p: covariate included with piece-wise constant hazards.}
+\centering
+\begin{tabular}[t]{llllllll}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{7}{c}{Multi-state model} \\
+\cmidrule(l{3pt}r{3pt}){2-8}
+  & M1 & M2 & M3 & M4 & M5 & M6 & M7\\
+\midrule
+\cellcolor{gray!10}{N (individuals in model)} & \cellcolor{gray!10}{9560} & \cellcolor{gray!10}{9560} & \cellcolor{gray!10}{7549} & \cellcolor{gray!10}{7549} & \cellcolor{gray!10}{9560} & \cellcolor{gray!10}{9560} & \cellcolor{gray!10}{7549}\\
+Symptom data (Y/N) & N & N & N & N & Y & Y & Y\\
+\addlinespace[0.3em]
+\multicolumn{8}{l}{\textbf{Covariates}}\\
+\cellcolor{gray!10}{\hspace{1em}Month} & \cellcolor{gray!10}{p} & \cellcolor{gray!10}{p} & \cellcolor{gray!10}{p} & \cellcolor{gray!10}{p} & \cellcolor{gray!10}{p} & \cellcolor{gray!10}{p} & \cellcolor{gray!10}{p}\\
+\hspace{1em}Binary vaccination status & $\checkmark$ &  & $\checkmark$ &  & $\checkmark$ &  & $\checkmark$\\
+\cellcolor{gray!10}{\hspace{1em}Vaccination status} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{}\\
+\hspace{1em}Time since infection &  &  & $\checkmark$ & $\checkmark$ &  &  & $\checkmark$\\
+\cellcolor{gray!10}{\hspace{1em}\makecell[l]{Vaccination:time since\\infection (interaction term)}} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{$\checkmark$}\\
+\hspace{1em}Region & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$\\
+\cellcolor{gray!10}{\hspace{1em}Age group} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$}\\
+\hspace{1em}Household status & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$\\
+\cellcolor{gray!10}{\hspace{1em}Gender} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$} & \cellcolor{gray!10}{$\checkmark$}\\
+\hspace{1em}Occupation/setting & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$\\
+\bottomrule
+\end{tabular}
+\end{table}

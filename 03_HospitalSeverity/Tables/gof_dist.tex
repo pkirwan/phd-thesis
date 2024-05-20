@@ -1,0 +1,32 @@
+\begin{table}[!h]
+\centering
+\caption{\label{tab:gof_dist}Log-likelihood and AIC values for parametric time to transition distributions, sorted by sub-model and AIC. Models with unidentifiable parameters not shown.}
+\centering
+\begin{tabular}[t]{llllrr}
+\toprule
+Sub-model & ICU & Death & Discharge & Log-likelihood & AIC\\
+\midrule
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{log-normal} & \cellcolor{gray!10}{gengamma} & \cellcolor{gray!10}{gengamma} & \cellcolor{gray!10}{-77841.96} & \cellcolor{gray!10}{155731.93}\\
+Hospital & log-normal & log-normal & gengamma & -77843.40 & 155732.80\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{log-normal} & \cellcolor{gray!10}{gengamma} & \cellcolor{gray!10}{log-normal} & \cellcolor{gray!10}{-77982.90} & \cellcolor{gray!10}{156011.80}\\
+Hospital & Weibull & gengamma & gengamma & -78281.82 & 156611.63\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{log-normal} & \cellcolor{gray!10}{gamma} & \cellcolor{gray!10}{gengamma} & \cellcolor{gray!10}{-78324.22} & \cellcolor{gray!10}{156694.44}\\
+Hospital & log-normal & Weibull & gengamma & -78329.02 & 156704.05\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{log-normal} & \cellcolor{gray!10}{exponential} & \cellcolor{gray!10}{gengamma} & \cellcolor{gray!10}{-78340.72} & \cellcolor{gray!10}{156725.44}\\
+Hospital & gamma & gengamma & gengamma & -78367.64 & 156783.28\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{exponential} & \cellcolor{gray!10}{gengamma} & \cellcolor{gray!10}{gengamma} & \cellcolor{gray!10}{-78397.36} & \cellcolor{gray!10}{156840.73}\\
+Hospital & log-normal & gengamma & Weibull & -79322.13 & 158690.27\\
+\cellcolor{gray!10}{Hospital} & \cellcolor{gray!10}{log-normal} & \cellcolor{gray!10}{gengamma} & \cellcolor{gray!10}{gamma} & \cellcolor{gray!10}{-79905.44} & \cellcolor{gray!10}{159856.87}\\
+Hospital & log-normal & gengamma & exponential & -81066.20 & 162176.41\\
+\cellcolor{gray!10}{ICU} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{gengamma} & \cellcolor{gray!10}{log-normal} & \cellcolor{gray!10}{-8710.57} & \cellcolor{gray!10}{17447.14}\\
+ICU &  & gengamma & gengamma & -8710.62 & 17449.24\\
+\cellcolor{gray!10}{ICU} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{log-normal} & \cellcolor{gray!10}{gengamma} & \cellcolor{gray!10}{-8717.79} & \cellcolor{gray!10}{17461.59}\\
+ICU &  & gamma & gengamma & -8764.12 & 17554.24\\
+\cellcolor{gray!10}{ICU} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{gengamma} & \cellcolor{gray!10}{gamma} & \cellcolor{gray!10}{-8765.89} & \cellcolor{gray!10}{17557.78}\\
+ICU &  & gengamma & exponential & -8770.58 & 17565.17\\
+\cellcolor{gray!10}{ICU} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{gengamma} & \cellcolor{gray!10}{Weibull} & \cellcolor{gray!10}{-8769.90} & \cellcolor{gray!10}{17565.80}\\
+ICU &  & exponential & gengamma & -8772.38 & 17568.76\\
+\cellcolor{gray!10}{ICU} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{Weibull} & \cellcolor{gray!10}{gengamma} & \cellcolor{gray!10}{-8772.14} & \cellcolor{gray!10}{17570.28}\\
+\bottomrule
+\end{tabular}
+\end{table}
